@@ -21,7 +21,7 @@ services:
       - /usr/src/app/node_modules
     ports:
       - ${SERVER_PORT}:${SERVER_PORT}
-    command: npm start
+    command: npm run 'start:dev'
     env_file:
       - .env
     links:
