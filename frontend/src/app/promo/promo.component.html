@@ -1,0 +1,37 @@
+<nz-layout>
+  <nz-header>
+    <nz-row nzJustify="space-between">
+      <nz-col >
+        <nz-row nzJustify="space-between" nzAlign="middle" [nzGutter]="16">
+          <nz-col>
+            <img src="../../assets/images/united-kingdom.png" style="max-width: 35px; max-height: 35px;" alt="">
+          </nz-col>
+          <nz-col nzAlign="middle">
+            <h3 nz-typography>RS Lang</h3>
+          </nz-col>
+        </nz-row>
+      </nz-col>
+      <nz-col>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" nzSelectable="false">
+            <li nz-menu-item>Особенности</li>
+            <li nz-menu-item>Игры</li>
+            <li nz-menu-item>Интервальное повторение</li>
+        </ul>
+      </nz-col>
+      <nz-col>
+        <button (click)="openAuth()" nzGhost="true" nz-tooltip nzTooltipTitle="Войти" nzTooltipPlacement="bottom" nz-button nzType="default" nzShape="circle"><i nz-icon nzType="login"></i></button>
+      </nz-col>
+    </nz-row>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      nzTitle="Войти"
+      [nzOkLoading]="isOkLoading"
+    >
+      <p *nzModalContent>Modal Content</p>
+    </nz-modal>
+  </nz-header>
+  <nz-content>main content</nz-content>
+  <nz-footer>footer</nz-footer>
+</nz-layout>
