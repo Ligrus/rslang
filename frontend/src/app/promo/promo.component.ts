@@ -6,24 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./promo.component.scss']
 })
 export class PromoComponent implements OnInit {
-
-  isVisible: boolean = false;
-  isOkLoading: boolean = false;
-
-  openAuth() {
-    this.isVisible = true;
-  }
-
-  handleCancel() {
-    this.isVisible = false
-  }
-  handleOk() {
-    this.isVisible = false
-  }
+  isAuthModalOpened = false;
 
   constructor() { }
 
+  openAuthModal() {
+    this.isAuthModalOpened = true
+  }
 
+  closeAuthModal(opened: boolean) {
+    this.isAuthModalOpened = opened
+  }
 
   ngOnInit(): void {
   }

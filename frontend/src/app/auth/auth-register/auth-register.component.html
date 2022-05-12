@@ -1,1 +1,35 @@
-<p>auth-register works!</p>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="registerForm" class="login-form" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Пожалуйста введите имя пользователя!">
+      <nz-input-group nzPrefixIcon="user">
+        <input type="text" nz-input formControlName="name" placeholder="Имя пользователя" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="emailErrorTpl">
+      <nz-input-group nzPrefixIcon="mail">
+        <input type="text" nz-input formControlName="email" placeholder="email" novalidate/>
+      </nz-input-group>
+      <ng-template #emailErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Введите email!</ng-container>
+        <ng-container *ngIf="control.hasError('email')">Невалидный email!</ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="passwordErrorTpl">
+      <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+        <input type="password" nz-input formControlName="password" placeholder="Пароль"  [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password"/>
+      </nz-input-group>
+      <ng-template #passwordErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Введите пароль!</ng-container>
+        <ng-container *ngIf="control.hasError('pattern')">Пароль должен содержать не менее 8 символов, в том числе один специальный символ, одну цифру, одну заглавную и строчную буквы</ng-container>
+      </ng-template>
+    </nz-form-control>
+    <ng-template #suffixTemplate>
+      <i nz-icon [nzType]="passwordVisible ?  'eye' : 'eye-invisible'" (click)="passwordVisible = !passwordVisible"></i>
+    </ng-template>
+  </nz-form-item>
+  <button nz-button class="register-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="isLoading">Зарегистрироваться</button>
+</form>

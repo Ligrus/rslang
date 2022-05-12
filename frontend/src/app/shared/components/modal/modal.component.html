@@ -1,0 +1,9 @@
+<nz-modal
+  [(nzVisible)]="isOpened"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <ng-content select="[title-modal]" *nzModalTitle></ng-content>
+  <ng-content *nzModalContent></ng-content>
+</nz-modal>

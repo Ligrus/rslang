@@ -9,9 +9,45 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzTabsModule } from 'ng-zorro-antd/tabs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @NgModule({
-  exports: [NzLayoutModule, NzMenuModule, NzGridModule, NzSpaceModule, NzTypographyModule, NzIconModule, NzButtonModule, NzToolTipModule, NzModalModule, NzFormModule],
-  imports: [NzLayoutModule, NzMenuModule, NzGridModule, NzSpaceModule, NzTypographyModule, NzIconModule, NzButtonModule, NzToolTipModule, NzModalModule, NzFormModule]
+  exports: [
+    NzCheckboxModule,
+    NzInputModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzGridModule,
+    NzSpaceModule,
+    NzTypographyModule,
+    NzIconModule,
+    NzButtonModule,
+    NzToolTipModule,
+    NzModalModule,
+    NzFormModule,
+    NzRadioModule,
+    NzTabsModule
+  ],
+  imports: [
+    NzCheckboxModule,
+    NzInputModule,
+    NzLayoutModule,
+    NzMenuModule,
+    NzGridModule,
+    NzSpaceModule,
+    NzTypographyModule,
+    NzIconModule,
+    NzButtonModule,
+    NzToolTipModule,
+    NzModalModule,
+    NzFormModule,
+    NzRadioModule,
+    NzTabsModule
+  ],
+  providers: [NzMessageService]
 })
 export class AntDesignModule { }

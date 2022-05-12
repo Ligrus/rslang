@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuthLoginComponent } from './auth-login/auth-login.component';
 import { AuthRegisterComponent } from './auth-register/auth-register.component';
-
-
-
+import { AntDesignModule } from '../ant-design.module';
+import { SharedModule } from '../shared/shared.module';
+import { AuthModalComponent } from './auth-modal/auth-modal.component';
 @NgModule({
   declarations: [
     AuthLoginComponent,
-    AuthRegisterComponent
+    AuthRegisterComponent,
+    AuthModalComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AntDesignModule,
+    SharedModule,
   ],
-  exports: [AuthLoginComponent, AuthRegisterComponent]
+  exports: [AuthLoginComponent, AuthRegisterComponent, AuthModalComponent]
 })
 export class AuthModule { }

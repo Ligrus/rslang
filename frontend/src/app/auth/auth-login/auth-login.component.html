@@ -1,30 +1,39 @@
-<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+<form nz-form [nzLayout]="'vertical'" [formGroup]="logInForm" class="login-form" (ngSubmit)="onSubmit()">
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your username!">
-      <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input formControlName="userName" placeholder="Username" />
+    <nz-form-control [nzErrorTip]="emailErrorTpl">
+      <nz-input-group nzPrefixIcon="mail">
+        <input type="text" nz-input formControlName="email" placeholder="email" novalidate/>
       </nz-input-group>
+      <ng-template #emailErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Введите email!</ng-container>
+        <ng-container *ngIf="control.hasError('email')">Невалидный email!</ng-container>
+      </ng-template>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Password!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" placeholder="Password" />
+    <nz-form-control [nzErrorTip]="passwordErrorTpl">
+      <nz-input-group nzPrefixIcon="lock" [nzSuffix]="suffixTemplate">
+        <input type="password" nz-input formControlName="password" placeholder="Пароль"  [type]="passwordVisible ? 'text' : 'password'" [(ngModel)]="password"/>
       </nz-input-group>
+      <ng-template #passwordErrorTpl let-control>
+        <ng-container *ngIf="control.hasError('required')">Введите пароль!</ng-container>
+        <ng-container *ngIf="control.hasError('pattern')">Пароль должен содержать не менее 8 символов, в том числе один специальный символ, одну цифру, одну заглавную и строчную буквы</ng-container>
+      </ng-template>
     </nz-form-control>
+    <ng-template #suffixTemplate>
+      <i nz-icon [nzType]="passwordVisible ? 'eye' : 'eye-invisible'" (click)="passwordVisible = !passwordVisible"></i>
+    </ng-template>
   </nz-form-item>
-  <div nz-row class="login-form-margin">
+  <!-- <div nz-row class="login-form-margin">
     <div nz-col [nzSpan]="12">
       <label nz-checkbox formControlName="remember">
-        <span>Remember me</span>
+        <span>Запомнить меня</span>
       </label>
     </div>
     <div nz-col [nzSpan]="12">
-      <a class="login-form-forgot">Forgot password</a>
+      <a class="login-form-forgot">Забыли пароль?</a>
     </div>
-  </div>
-  <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-  Or
-  <a>register now!</a>
+  </div> -->
+  <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" [nzLoading]="isLoading">Войти</button>
 </form>
 

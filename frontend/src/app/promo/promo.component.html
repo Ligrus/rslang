@@ -19,19 +19,15 @@
         </ul>
       </nz-col>
       <nz-col>
-        <button (click)="openAuth()" nzGhost="true" nz-tooltip nzTooltipTitle="Войти" nzTooltipPlacement="bottom" nz-button nzType="default" nzShape="circle"><i nz-icon nzType="login"></i></button>
+        <button (click)="openAuthModal()" nzGhost="true" nz-tooltip nzTooltipPlacement="bottom" nz-button nzType="default"><i nz-icon nzType="login"></i> Войти</button>
       </nz-col>
     </nz-row>
-    <nz-modal
-      [(nzVisible)]="isVisible"
-      (nzOnCancel)="handleCancel()"
-      (nzOnOk)="handleOk()"
-      nzTitle="Войти"
-      [nzOkLoading]="isOkLoading"
-    >
-      <p *nzModalContent>Modal Content</p>
-    </nz-modal>
+    <app-auth-modal [isOpened]="isAuthModalOpened" [title]="'Войти'" (toggleModal)="closeAuthModal($event)"></app-auth-modal>
+    <!-- <app-modal [isOpened]="isAuthModalOpened" [title]="'Войти'" (toggleModal)="closeAuthModal($event)">
+      <app-auth-modal></app-auth-modal>
+    </app-modal> -->
   </nz-header>
-  <nz-content>main content</nz-content>
+  <nz-content>
+  </nz-content>
   <nz-footer>footer</nz-footer>
 </nz-layout>

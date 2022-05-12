@@ -1,0 +1,28 @@
+<nz-modal
+[(nzVisible)]="isOpened"
+(nzOnCancel)="handleCancel()"
+(nzOnOk)="handleOk()"
+[nzOkLoading]="isOkLoading"
+nzCentered
+[nzFooter]="null"
+>
+<ng-container *nzModalTitle>
+  <nz-radio-group [(ngModel)]="authActive">
+    <label nz-radio-button nzValue="login"><span>Войти</span></label>
+    <label nz-radio-button nzValue="register"><span>Зарегистрироваться</span></label>
+  </nz-radio-group>
+</ng-container>
+<ng-container ngProjectAs="content-modal" *nzModalContent>
+  <app-auth-login *ngIf="authActive === 'login'"></app-auth-login>
+  <app-auth-register (backToLogin)="authActive = 'login'" *ngIf="authActive === 'register'"></app-auth-register>
+</ng-container>
+<!-- <ng-content select="[title-modal]" *nzModalTitle></ng-content>
+<ng-content *nzModalContent></ng-content> -->
+</nz-modal>
+
+
+
+
+
+
+
