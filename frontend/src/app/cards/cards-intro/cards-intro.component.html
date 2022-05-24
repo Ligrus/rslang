@@ -1,2 +1,139 @@
-<p>cards-intro works!</p>
-<button (click)="logout()">logout</button>
+<div class="cards-intro">
+  <nz-page-header class="page-title-info">
+    <nz-page-header-title>Изучение слов</nz-page-header-title>
+    <nz-page-header-content>
+      <nz-row>
+        <nz-card nz-col [nzSpan]="12" nzBorderless="true">
+          <nz-row>
+            <nz-avatar
+              nzSrc="../../../assets/images/exercise.png"
+              [nzSize]="74"
+              [nzShape]="'square'"
+              nzIcon="user"
+            ></nz-avatar>
+            <h5 nz-typography>
+              Изучай новые слова, используя метод интервального повторения
+            </h5>
+          </nz-row>
+        </nz-card>
+        <div nz-col [nzSpan]="12">
+          <div nz-row [nzGutter]="[16, 24]">
+            <div nz-col [nzSpan]="8">
+              <nz-card>
+                <nz-statistic
+                  [nzValue]="(35 | number)!"
+                  [nzSuffix]="'/ 3600'"
+                  [nzTitle]="'Изучено карточек всего за все время'"
+                ></nz-statistic>
+              </nz-card>
+            </div>
+            <div nz-col [nzSpan]="8">
+              <nz-card>
+                <nz-statistic
+                  [nzValue]="(35 | number)!"
+                  [nzTitle]="'Максимальная серия верных ответов'"
+                ></nz-statistic>
+              </nz-card>
+            </div>
+            <div nz-col [nzSpan]="8">
+              <nz-card>
+                <nz-statistic
+                  [nzValue]="(35 | number)!"
+                  [nzTitle]="'Среднее количество изучаемых карточек в день'"
+                ></nz-statistic>
+              </nz-card>
+            </div>
+          </div>
+        </div>
+      </nz-row>
+    </nz-page-header-content>
+  </nz-page-header>
+  <nz-card [nzBorderless]="true">
+    <nz-row [nzGutter]="[34, 24]">
+      <div nz-col [nzSpan]="8">
+        <nz-card nzTitle="Прогресс за сегодня" [nzHoverable]="true">
+          <nz-row>
+            <div nz-col [nzSpan]="12">
+              <nz-statistic
+                [nzValue]="(35 | number)!"
+                [nzSuffix]="'/ 50'"
+                [nzTitle]="'Выучено слов всего'"
+              ></nz-statistic>
+              <nz-divider></nz-divider>
+              <div class="statistics-breakdown">
+                <div class="statistics-breakdown__repeated">
+                  <span nz-typography>Повторенных:</span>
+                  <span style="color: #108ee9">20</span>
+                </div>
+                <div class="statistics-breakdown__new">
+                  <span nz-typography>Новых:</span>
+                  <span style="color: #3f8600">15</span>
+                </div>
+              </div>
+            </div>
+            <div nz-col [nzSpan]="12">
+              <nz-row [nzJustify]="'center'">
+                <nz-progress
+                  [nzPercent]="75"
+                  nzType="circle"
+                  [nzStrokeColor]="{ '0%': '#108ee9', '100%': '#87d068' }"
+                ></nz-progress>
+              </nz-row>
+            </div>
+          </nz-row>
+        </nz-card>
+      </div>
+      <div nz-col [nzSpan]="16">
+        <nz-card nzTitle="Выбери режим тренировки:" [nzHoverable]="true">
+          <nz-card-tab>
+            <nz-tabset
+              nzCentered
+              nzType="card"
+              [(nzSelectedIndex)]="activeModeIndx"
+            >
+              <nz-tab nzTitle="Изучение слов"> </nz-tab>
+              <nz-tab nzTitle="Повторение слов"> </nz-tab>
+              <nz-tab nzTitle="Все слова"> </nz-tab>
+            </nz-tabset>
+          </nz-card-tab>
+          <nz-row class="modes-container">
+            <nz-card
+              *ngFor="let card of learnCardsModes; index as i"
+              class="mode"
+              [ngStyle]="{ background: card.bg, transform: setModePosition(i) }"
+            >
+              <div>
+                <div class="mode-header">
+                  <h2 nz-typography>{{ card.title }}</h2>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-arrow-narrow-right"
+                    width="44"
+                    height="44"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="#ffffff"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <line x1="15" y1="16" x2="19" y2="12"></line>
+                    <line x1="15" y1="8" x2="19" y2="12"></line>
+                  </svg>
+                </div>
+                <div class="mode-body">
+                  <div class="mode-body__description">
+                    {{ card.description }}
+                  </div>
+                  <div class="mode-body__bg"></div>
+                </div>
+              </div>
+            </nz-card>
+          </nz-row>
+        </nz-card>
+      </div>
+    </nz-row>
+  </nz-card>
+</div>

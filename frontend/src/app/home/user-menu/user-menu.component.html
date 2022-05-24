@@ -1,0 +1,9 @@
+<a nz-dropdown [nzDropdownMenu]="menu">
+  <nz-avatar nzIcon="user" nzSize="small"></nz-avatar>
+  Hi User!
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu nzSelectable>
+    <li (click)="logout()" nz-menu-item>Выйти</li>
+  </ul>
+</nz-dropdown-menu>

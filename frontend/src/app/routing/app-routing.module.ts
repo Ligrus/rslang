@@ -11,8 +11,13 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('../cards/cards.module').then((m) => m.CardsModule),
-    canActivate: [AuthGuardService],
+      import('../home/home.module').then((m) => m.HomeModule),
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: '',
+    redirectTo: '/promo',
+    pathMatch: 'full'
   },
 ];
 

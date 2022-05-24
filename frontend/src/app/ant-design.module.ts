@@ -14,6 +14,13 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzTabsModule } from 'ng-zorro-antd/tabs';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzCardModule } from 'ng-zorro-antd/card';
+import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
+import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 
 @NgModule({
   exports: [
@@ -30,7 +37,14 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     NzModalModule,
     NzFormModule,
     NzRadioModule,
-    NzTabsModule
+    NzTabsModule,
+    NzDividerModule,
+    NzAvatarModule,
+    NzDropDownModule,
+    NzCardModule,
+    NzPageHeaderModule,
+    NzProgressModule,
+    NzStatisticModule
   ],
   imports: [
     NzCheckboxModule,
@@ -46,7 +60,14 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     NzModalModule,
     NzFormModule,
     NzRadioModule,
-    NzTabsModule
+    NzTabsModule,
+    NzDividerModule,
+    NzAvatarModule,
+    NzDropDownModule,
+    NzCardModule,
+    NzPageHeaderModule,
+    NzProgressModule,
+    NzStatisticModule
   ],
   providers: [NzMessageService]
 })

@@ -38,7 +38,6 @@ export class AuthService {
   }
 
   logout() {
-    debugger
     this.setAuthState(false)
     localStorage.removeItem('token');
     localStorage.removeItem('refreshToken');

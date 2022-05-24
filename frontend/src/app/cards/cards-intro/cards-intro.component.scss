@@ -1,0 +1,67 @@
+:host {
+  width: 100%;
+}
+
+.cards-intro {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  padding: 30px;
+}
+
+.modes-container {
+  position: relative;
+  width: 100%;
+  min-height: 500px;
+  overflow-x: hidden;
+}
+
+h5 {
+  color: rgba(0,0,0,.45);
+  margin-left: 20px;
+}
+
+.mode {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 520px;
+  min-height: 450px;
+  width: 100%;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  color: #fff;
+  transition: transform 0.5s;
+  &:after {
+    content: '';
+    display: block;
+    background: rgb(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1
+  }
+  &-body {
+    font-size: 18px;
+    font-weight: 500;
+    &__bg {
+      height: 100%;
+      background-image: url('../../../assets/images/queen.png');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+  &-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  h2 {
+    color: #fff;
+    margin-bottom: 0;
+  }
+}

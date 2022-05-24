@@ -12,14 +12,14 @@
         </nz-row>
       </nz-col>
       <nz-col>
-        <ul nz-menu nzTheme="dark" nzMode="horizontal" nzSelectable="false">
+        <ul nz-menu nzTheme="light" nzMode="horizontal" nzSelectable="false">
             <li nz-menu-item>Особенности</li>
             <li nz-menu-item>Игры</li>
             <li nz-menu-item>Интервальное повторение</li>
         </ul>
       </nz-col>
       <nz-col>
-        <button (click)="openAuthModal()" nzGhost="true" nz-tooltip nzTooltipPlacement="bottom" nz-button nzType="default"><i nz-icon nzType="login"></i> Войти</button>
+        <button (click)="openAuthModal()" nz-tooltip nzTooltipPlacement="bottom" nz-button nzType="default"><i nz-icon nzType="login"></i> Войти</button>
       </nz-col>
     </nz-row>
     <app-auth-modal [isOpened]="isAuthModalOpened" [title]="'Войти'" (toggleModal)="closeAuthModal($event)"></app-auth-modal>

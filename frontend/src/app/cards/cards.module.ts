@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardsIntroComponent } from './cards-intro/cards-intro.component';
-import { RouterModule } from '@angular/router';
+import { AntDesignModule } from '../ant-design.module';
 
 @NgModule({
   declarations: [
@@ -9,10 +9,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{
-      path: '',
-      component: CardsIntroComponent
-    }])
-  ]
+    AntDesignModule
+  ],
+  exports: [CardsIntroComponent]
 })
 export class CardsModule { }
