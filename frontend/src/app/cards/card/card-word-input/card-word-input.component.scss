@@ -1,0 +1,44 @@
+:host {
+  align-self: center;
+}
+
+.word-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  font-size: 25px;
+  background: transparent;
+}
+
+.input-hidden {
+  &:first-child {
+    color: transparent;
+  }
+}
+
+.input-container {
+  position: relative;
+  padding: 4px 11px;
+  font-size: 25px;
+  span {
+    visibility: hidden;
+  }
+}
+
+.visible {
+  visibility: visible !important;
+}
+
+.wrong {
+  color: red;
+}
+
+.correct {
+  color: green;
+}
+
+.missing {
+  color: red;
+}

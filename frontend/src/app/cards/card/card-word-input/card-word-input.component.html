@@ -1,0 +1,20 @@
+<div class="input-container">
+  <input
+    (input)="toggleUserWordCheck(false)"
+    class="ant-input word-input"
+    type="text"
+    [(ngModel)]="wordInputCurrentValue"
+    (blur)="toggleUserWordCheck(true)"
+    #wordInput
+  />
+  <span
+    [ngClass]="{
+      visible: isWordVariantConfirmed,
+      wrong: char !== userWordVariant[i],
+      correct: char === userWordVariant[i],
+      missing: userWordVariant[i] === undefined
+    }"
+    *ngFor="let char of wordToCompare?.split(''); let i = index"
+    >{{ char }}</span
+  >
+</div>

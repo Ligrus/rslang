@@ -12,14 +12,16 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
   imports: [
     CommonModule,
     AntDesignModule,
-    CardsModule,
     RouterModule.forChild([
       {
         path: '',
         component: HomeLayoutComponent,
         children: [
-          { path: '', redirectTo:'cards', pathMatch: 'full' },
-          { path: 'cards', component: CardsIntroComponent },
+          {
+            path: 'cards',
+            loadChildren: () => CardsModule,
+          },
+          { path: '', pathMatch: 'full', redirectTo: 'cards' },
           { path: 'dictionary', component: CardsIntroComponent },
           { path: 'settings', component: CardsIntroComponent },
           { path: 'statistics', component: CardsIntroComponent },

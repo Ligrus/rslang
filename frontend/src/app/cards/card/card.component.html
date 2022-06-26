@@ -1,0 +1,87 @@
+<nz-card [nzTitle]="cardTitle">
+  <ng-template #cardTitle>
+    <nz-row>
+      <div nz-col nzSpan="12">
+        <button
+          nz-button
+          nzType="default"
+          nzShape="circle"
+          (click)="showAnswer()"
+        >
+          <i nz-icon nzType="sound"></i>
+        </button>
+      </div>
+      <div nz-col nzSpan="12" class="word-markers">
+        <nz-col nzSpan="24">
+          <nz-row [nzJustify]="'end'">
+            <button nz-button nzType="primary">
+              <i nz-icon nzType="star"></i>В сложные
+            </button>
+            <button nz-button nzType="primary" nzDanger>
+              <i nz-icon nzType="delete"></i>
+              Удалить
+            </button>
+          </nz-row>
+        </nz-col>
+      </div>
+    </nz-row>
+  </ng-template>
+  <nz-row>
+    <nz-row class="main-content">
+      <nz-row nzSpan="24" class="word-basics">
+        <div nz-col nzSpan="12" class="word-basics__word">
+          <span class="word-basics-title">Введите английское слово:</span>
+          <app-card-word-input
+            [wordToCompare]="card?.word"
+          ></app-card-word-input>
+          <span class="word-basics-translation">{{ card?.wordTranslate }}</span>
+          <span class="word-basics-transcription">{{
+            card?.transcription
+          }}</span>
+        </div>
+        <div nz-col nzSpan="12" class="word-basics__avatar">
+          <img #avatar />
+        </div>
+      </nz-row>
+      <nz-divider></nz-divider>
+      <nz-col nzSpan="24">
+        <nz-row class="word-explanation" [nzAlign]="'middle'">
+          <button nz-button nzType="primary" nzShape="circle">
+            <i nz-icon nzType="info"></i>
+          </button>
+          <div nz-col nzSpan="22" class="word-explanation__example">
+            <div
+              class="word-explanation__example_eng"
+              nz-col
+              nzSpan="24"
+              [appCardWordExample]="card?.textExample"
+              [isShowAnswerActivated]="isShowAnswerActivated"
+            ></div>
+            <div class="word-explanation__example_rus" nz-col nzSpan="24">
+              {{ card?.textExampleTranslate }}
+            </div>
+          </div>
+        </nz-row>
+      </nz-col>
+      <nz-col nzSpan="24">
+        <nz-row class="word-meaning" [nzAlign]="'middle'">
+          <button nz-button nzType="primary" nzShape="circle">
+            <i nz-icon nzType="read"></i>
+          </button>
+          <div nz-col nzSpan="22" class="word-meaning__example">
+            <div
+              class="word-meaning__example_eng"
+              nz-col
+              nzSpan="24"
+              [appCardWordExample]="card?.textMeaning"
+              [isShowAnswerActivated]="isShowAnswerActivated"
+            ></div>
+            <div class="word-meaning__example_rus" nz-col nzSpan="24">
+              {{ card?.textMeaningTranslate }}
+            </div>
+          </div>
+        </nz-row>
+      </nz-col>
+    </nz-row>
+  </nz-row>
+</nz-card>

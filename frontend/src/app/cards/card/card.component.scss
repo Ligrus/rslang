@@ -1,0 +1,66 @@
+:host {
+  max-width: 740px;
+  width: 100%;
+}
+
+.word-markers {
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin: 0 10px;
+  }
+}
+
+::ng-deep {
+  .learning-word {
+    b, i {
+      background: #b3b3b3;
+      border-radius: 5px;
+      padding: 5px;
+      user-select: none;
+      color: #1890ff;
+      font-style: normal;
+      font-weight: bold;
+    }
+  }
+  .hidden-word {
+    b, i {
+      color: transparent;
+    }
+  }
+}
+
+.main-content {
+  width: 100%;
+}
+
+.word-basics {
+  width: 100%;
+  & div {
+    padding: 10px
+  }
+  &__avatar img {
+    max-width: 100%;
+    border-radius: 7px;
+  }
+  &__word {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 60px
+  }
+  &-translation, &-transcription {
+    align-self: center;
+    font-weight: bold;
+  }
+}
+
+.word-explanation, .word-meaning {
+  margin-bottom: 20px;
+  button {
+    margin-right: 15px;
+  }
+}
+
+
+

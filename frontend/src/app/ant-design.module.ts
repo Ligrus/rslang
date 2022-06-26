@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
-import { NzMenuModule } from "ng-zorro-antd/menu";
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
@@ -21,6 +21,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 
 @NgModule({
   exports: [
@@ -44,7 +45,8 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
     NzCardModule,
     NzPageHeaderModule,
     NzProgressModule,
-    NzStatisticModule
+    NzStatisticModule,
+    NzBreadCrumbModule,
   ],
   imports: [
     NzCheckboxModule,
@@ -67,8 +69,9 @@ import { NzStatisticModule } from 'ng-zorro-antd/statistic';
     NzCardModule,
     NzPageHeaderModule,
     NzProgressModule,
-    NzStatisticModule
+    NzStatisticModule,
+    NzBreadCrumbModule,
   ],
-  providers: [NzMessageService]
+  providers: [NzMessageService],
 })
-export class AntDesignModule { }
+export class AntDesignModule {}

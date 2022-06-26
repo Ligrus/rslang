@@ -15,7 +15,7 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   {
-    path: '',
+    path: '**',
     redirectTo: '/promo',
     pathMatch: 'full'
   },
