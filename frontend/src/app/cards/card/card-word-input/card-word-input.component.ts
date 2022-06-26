@@ -5,7 +5,7 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
   templateUrl: './card-word-input.component.html',
   styleUrls: ['./card-word-input.component.scss'],
 })
-export class CardWordInputComponent implements OnInit {
+export class CardWordInputComponent {
   @Input() wordToCompare: string;
   @ViewChild('wordInput') wordInput: ElementRef<HTMLInputElement>;
   userWordVariant: string = '';
@@ -24,9 +24,5 @@ export class CardWordInputComponent implements OnInit {
       }
       this.userWordVariant = '';
     }
-  }
-
-  ngOnInit(): void {
-    console.log(this.wordToCompare);
   }
 }
