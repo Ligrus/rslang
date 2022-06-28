@@ -1,11 +1,10 @@
 <div class="input-container">
   <input
-    (input)="toggleUserWordCheck(false)"
+    (input)="toggleUserWordCheckLaunch(false)"
     class="ant-input word-input"
     type="text"
     [(ngModel)]="wordInputCurrentValue"
-    (blur)="toggleUserWordCheck(true)"
-    #wordInput
+    (blur)="toggleUserWordCheckLaunch(true)"
   />
   <span
     [ngClass]="{

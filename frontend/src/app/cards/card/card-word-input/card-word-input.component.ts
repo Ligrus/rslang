@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-card-word-input',
@@ -7,22 +7,23 @@ import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 })
 export class CardWordInputComponent {
   @Input() wordToCompare: string;
-  @ViewChild('wordInput') wordInput: ElementRef<HTMLInputElement>;
   userWordVariant: string = '';
   wordInputCurrentValue: string = '';
   isWordVariantConfirmed = false;
 
   constructor() {}
 
-  toggleUserWordCheck(isWordVariantConfirmed: boolean) {
-    if (this.isWordVariantConfirmed !== isWordVariantConfirmed) {
-      this.isWordVariantConfirmed = isWordVariantConfirmed;
-      if (this.isWordVariantConfirmed) {
-        this.userWordVariant = this.wordInputCurrentValue;
-        this.wordInputCurrentValue = '';
-        return;
-      }
-      this.userWordVariant = '';
+  toggleUserWordCheckLaunch(isWordVariantConfirmed: boolean) {
+    if (this.isWordVariantConfirmed === isWordVariantConfirmed) {
+      return;
     }
+    this.isWordVariantConfirmed = isWordVariantConfirmed;
+
+    if (!this.isWordVariantConfirmed) {
+      this.userWordVariant = '';
+      return;
+    }
+    this.userWordVariant = this.wordInputCurrentValue;
+    this.wordInputCurrentValue = '';
   }
 }
