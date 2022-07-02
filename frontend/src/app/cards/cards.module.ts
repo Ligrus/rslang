@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { CardWordExampleDirective } from './directives/card-word-example.directive';
 import { CardWordInputComponent } from './card/card-word-input/card-word-input.component';
 import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     CardsIntroComponent,
