@@ -11,7 +11,7 @@
           <i nz-icon nzType="sound"></i>
         </button>
       </div>
-      <div nz-col nzSpan="12" class="word-markers">
+      <div nz-col nzSpan="12" class="word-markers" *ngIf="isCardCompleted">
         <nz-col nzSpan="24">
           <nz-row [nzJustify]="'end'">
             <button nz-button nzType="primary">
@@ -32,7 +32,9 @@
         <div nz-col nzSpan="12" class="word-basics__word">
           <span class="word-basics-title">Введите английское слово:</span>
           <app-card-word-input
+            (completeCard)="completeCard()"
             [wordToCompare]="card?.word"
+            [(isShowAnswerActivated)]="isShowAnswerActivated"
           ></app-card-word-input>
           <span class="word-basics-translation">{{ card?.wordTranslate }}</span>
           <span class="word-basics-transcription">{{
@@ -81,6 +83,26 @@
             </div>
           </div>
         </nz-row>
+      </nz-col>
+      <nz-divider></nz-divider>
+      <nz-col nzSpan="24">
+        <nz-row
+          [nzJustify]="'center'"
+          *ngIf="!isCardCompleted; else cardCompletedTemplate"
+        >
+          <button nz-button (click)="showAnswer()">
+            <i nz-icon nzType="eye"></i>
+            Показать ответ
+          </button>
+        </nz-row>
+        <ng-template #cardCompletedTemplate>
+          <nz-row [nzJustify]="'space-around'" class="card-difficulty">
+            <button class="hard-level-btn again" nz-button>Снова</button>
+            <button class="hard-level-btn hard" nz-button>Трудно</button>
+            <button class="hard-level-btn normal" nz-button>Нормально</button>
+            <button class="hard-level-btn easy" nz-button>Легко</button>
+          </nz-row>
+        </ng-template>
       </nz-col>
     </nz-row>
   </nz-row>

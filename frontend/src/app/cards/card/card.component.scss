@@ -12,6 +12,37 @@
 }
 
 ::ng-deep {
+  .hard-level-btn {
+    min-width: 110px;
+    &.easy {
+      color: #4f46e5;
+      &:hover, &:active {
+        border-color: #4f46e5;
+        color: #4f46e5;
+      }
+    }
+    &.normal {
+      color: #059669;
+      &:hover, &:active {
+        border-color: #059669;
+        color: #059669;
+      }
+    }
+    &.hard {
+      color: #d97706;
+      &:hover, &:active {
+        border-color: #d97706;
+        color: #d97706;
+      }
+    }
+    &.again {
+      color: #dc2626;
+      &:hover, &:active {
+        border-color: #dc2626;
+        color: #dc2626;
+      }
+    }
+  }
   .learning-word {
     b, i {
       background: #b3b3b3;
@@ -32,6 +63,10 @@
 
 .main-content {
   width: 100%;
+}
+
+.card-difficulty {
+  padding: 0 75px;
 }
 
 .word-basics {

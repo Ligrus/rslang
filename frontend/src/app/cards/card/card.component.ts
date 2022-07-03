@@ -20,6 +20,7 @@ import { Card } from '../interfaces/card.interface';
 })
 export class CardComponent implements OnInit, OnDestroy {
   @ViewChild('avatar') avatar: ElementRef<HTMLImageElement>;
+  isCardCompleted = false;
   card: any;
   endpoint: any;
   response$: Observable<any>;
@@ -33,7 +34,12 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   showAnswer() {
-    this.isShowAnswerActivated = !this.isShowAnswerActivated;
+    this.isShowAnswerActivated = true;
+  }
+
+  completeCard() {
+    this.isCardCompleted = true;
+    this.playAudio();
   }
 
   playAudio() {
@@ -45,7 +51,7 @@ export class CardComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.http
-      .get<Card>(`${this.endpoint}words/5e9f5ee35eb9e72bc21af4a0`)
+      .get<Card>(`${this.endpoint}words/5e9f5ee35eb9e72bc21af4c3`)
       .pipe(
         tap((card: Card) => {
           this.card = card;
