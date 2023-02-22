@@ -32,17 +32,17 @@
         <div nz-col nzSpan="12" class="word-basics__word">
           <span class="word-basics-title">Введите английское слово:</span>
           <app-card-word-input
-            (completeCard)="completeCard()"
-            [wordToCompare]="card?.word"
+            [wordToCompare]="card.word"
             [(isShowAnswerActivated)]="isShowAnswerActivated"
+            [(isCardCompleted)]="isCardCompleted"
           ></app-card-word-input>
-          <span class="word-basics-translation">{{ card?.wordTranslate }}</span>
+          <span class="word-basics-translation">{{ card.wordTranslate }}</span>
           <span class="word-basics-transcription">{{
-            card?.transcription
+            card.transcription
           }}</span>
         </div>
         <div nz-col nzSpan="12" class="word-basics__avatar">
-          <img #avatar />
+          <img [src]="endpoint + card.image" />
         </div>
       </nz-row>
       <nz-divider></nz-divider>
@@ -56,11 +56,11 @@
               class="word-explanation__example_eng"
               nz-col
               nzSpan="24"
-              [appCardWordExample]="card?.textExample"
+              [appCardWordExample]="card.textExample"
               [isShowAnswerActivated]="isShowAnswerActivated"
             ></div>
             <div class="word-explanation__example_rus" nz-col nzSpan="24">
-              {{ card?.textExampleTranslate }}
+              {{ card.textExampleTranslate }}
             </div>
           </div>
         </nz-row>
@@ -75,11 +75,11 @@
               class="word-meaning__example_eng"
               nz-col
               nzSpan="24"
-              [appCardWordExample]="card?.textMeaning"
+              [appCardWordExample]="card.textMeaning"
               [isShowAnswerActivated]="isShowAnswerActivated"
             ></div>
             <div class="word-meaning__example_rus" nz-col nzSpan="24">
-              {{ card?.textMeaningTranslate }}
+              {{ card.textMeaningTranslate }}
             </div>
           </div>
         </nz-row>
@@ -97,10 +97,34 @@
         </nz-row>
         <ng-template #cardCompletedTemplate>
           <nz-row [nzJustify]="'space-around'" class="card-difficulty">
-            <button class="hard-level-btn again" nz-button>Снова</button>
-            <button class="hard-level-btn hard" nz-button>Трудно</button>
-            <button class="hard-level-btn normal" nz-button>Нормально</button>
-            <button class="hard-level-btn easy" nz-button>Легко</button>
+            <button
+              class="hard-level-btn again"
+              (click)="rateCardDifficulty(2)"
+              nz-button
+            >
+              Снова
+            </button>
+            <button
+              class="hard-level-btn hard"
+              (click)="rateCardDifficulty(3)"
+              nz-button
+            >
+              Трудно
+            </button>
+            <button
+              class="hard-level-btn normal"
+              (click)="rateCardDifficulty(4)"
+              nz-button
+            >
+              Нормально
+            </button>
+            <button
+              class="hard-level-btn easy"
+              nz-button
+              (click)="rateCardDifficulty(5)"
+            >
+              Легко
+            </button>
           </nz-row>
         </ng-template>
       </nz-col>

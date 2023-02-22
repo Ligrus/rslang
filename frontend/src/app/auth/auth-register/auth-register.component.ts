@@ -1,9 +1,11 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { catchError, delay, tap } from 'rxjs/operators';
+import { catchError, delay, map, switchMap, tap } from 'rxjs/operators';
 import { AuthService } from '../services/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { of } from 'rxjs';
+import { combineLatest, forkJoin, of } from 'rxjs';
+import { SettingsService } from 'src/app/settings/services/settings.service';
+import { StatisticsService } from 'src/app/statistics/services/statistics.service';
 
 @Component({
   selector: 'app-auth-register',
@@ -21,7 +23,9 @@ export class AuthRegisterComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private message: NzMessageService
+    private message: NzMessageService,
+    private settingsService: SettingsService,
+    private statisticsService: StatisticsService
   ) {}
 
   initForm() {
@@ -40,7 +44,7 @@ export class AuthRegisterComponent implements OnInit {
       this.authService
         .register(this.registerForm.value)
         .pipe(
-          tap(() => {
+          tap((val) => {
             this.isLoading = false;
             this.message.success(
               'Успешная регистрация!',

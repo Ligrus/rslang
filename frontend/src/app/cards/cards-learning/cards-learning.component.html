@@ -11,9 +11,15 @@
     </nz-breadcrumb>
   </nz-row>
   <nz-row class="main-content">
-    <app-card></app-card>
+    <app-card *ngIf="!!activeLearnCard" [card]="activeLearnCard" (goToNextCard)="goToNextCard()"></app-card>
     <nz-row class="progress">
-      <span>0</span><nz-progress [nzPercent]="0" nzStatus="active" [nzShowInfo]="false"></nz-progress><span>20</span>
+      <span>0</span
+      ><nz-progress
+        [nzPercent]="0"
+        nzStatus="active"
+        [nzShowInfo]="false"
+      ></nz-progress
+      ><span>20</span>
     </nz-row>
   </nz-row>
 </div>

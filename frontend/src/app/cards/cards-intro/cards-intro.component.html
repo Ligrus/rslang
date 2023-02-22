@@ -101,6 +101,7 @@
               *ngFor="let card of learnCardsModes; index as i"
               class="mode"
               [ngStyle]="{ background: card.bg, transform: setModePosition(i) }"
+              (click)="openCardsLearnMode(i)"
             >
               <div>
                 <div class="mode-header">

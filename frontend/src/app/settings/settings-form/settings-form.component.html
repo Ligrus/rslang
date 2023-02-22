@@ -1,0 +1,41 @@
+<nz-card class="settings-modes">
+  <nz-card-tab>
+    <nz-tabset nzSize="large" [(nzSelectedIndex)]="index">
+      <nz-tab nzTitle="Общие"></nz-tab>
+      <nz-tab nzTitle="Карточки"></nz-tab>
+      <nz-tab nzTitle="Словарь"></nz-tab>
+    </nz-tabset>
+  </nz-card-tab>
+  <form nz-form [nzLayout]="'vertical'" [formGroup]="settingsForm" (ngSubmit)="onSubmit()">
+    <div *ngIf="index === 0" class="tab-content">
+      <label nz-checkbox formControlName="playSound">Автоматическое воспроизведение звука </label>
+      <nz-divider></nz-divider>
+      <label>
+        <span>Новых слов в день</span>
+        <nz-input-number [nzMin]="1" [nzMax]="10" [nzStep]="1" formControlName="newWordsAmount"></nz-input-number>
+      </label>
+      <label>
+        <span>Всего карточек в день</span>
+        <nz-input-number [nzMin]="1" [nzMax]="10" [nzStep]="1" formControlName="wordsPerDay"></nz-input-number>
+      </label>
+    </div>
+    <div *ngIf="index === 1" class="tab-content">
+      <label nz-checkbox formControlName="showWordTranslation">Отображать перевод слова </label>
+      <label nz-checkbox formControlName="showWordExplanation">Отображать предложение с объяснением</label>
+      <label nz-checkbox formControlName="showWordExample">Отображать пример с использованием</label>
+      <label nz-checkbox formControlName="showWordTranscription">Отображать транскрипцию слова</label>
+      <label nz-checkbox formControlName="showImage">Отображать картинку-ассоциацию</label>
+    </div>
+    <div *ngIf="index === 2" class="tab-content">
+      <label nz-checkbox formControlName="isShowAnswerEnabled">Возможность просмотра ответа</label>
+      <label nz-checkbox formControlName="isDeleteWordEnabled">Возможность удаления слова</label>
+      <label nz-checkbox formControlName="isAddToHardWordsEnabled">Возможность добавления в сложные</label>
+    </div>
+    <nz-divider></nz-divider>
+    <nz-row [nzJustify]="'end'">
+      <button nz-button nzType="primary" [nzLoading]="isUpdateInProgress">
+        Сохранить
+      </button>
+    </nz-row>
+  </form>
+</nz-card>

@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CardsIntroComponent } from '../cards/cards-intro/cards-intro.component';
 import { CardsModule } from '../cards/cards.module';
 import { UserMenuComponent } from './user-menu/user-menu.component';
+import { SettingsModule } from '../settings/settings.module';
 
 @NgModule({
   declarations: [HomeLayoutComponent, UserMenuComponent],
@@ -21,9 +22,9 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
             path: 'cards',
             loadChildren: () => CardsModule,
           },
+          { path: 'settings', loadChildren: () => SettingsModule, },
           { path: '', pathMatch: 'full', redirectTo: 'cards' },
           { path: 'dictionary', component: CardsIntroComponent },
-          { path: 'settings', component: CardsIntroComponent },
           { path: 'statistics', component: CardsIntroComponent },
           { path: 'games', component: CardsIntroComponent },
         ],

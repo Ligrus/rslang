@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { CardWordExampleDirective } from './directives/card-word-example.directive';
 import { CardWordInputComponent } from './card/card-word-input/card-word-input.component';
 import { FormsModule } from '@angular/forms';
+import { CardsDataService } from './services/cards-data.service';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     AntDesignModule,
     FormsModule,
   ],
+  providers: [CardsDataService],
   exports: [CardsIntroComponent],
 })
 export class CardsModule {}

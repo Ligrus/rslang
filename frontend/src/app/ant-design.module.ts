@@ -22,6 +22,9 @@ import { NzPageHeaderModule } from 'ng-zorro-antd/page-header';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzSpinModule } from 'ng-zorro-antd/spin';
+
 
 @NgModule({
   exports: [
@@ -47,6 +50,8 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
     NzProgressModule,
     NzStatisticModule,
     NzBreadCrumbModule,
+    NzInputNumberModule,
+    NzSpinModule
   ],
   imports: [
     NzCheckboxModule,
@@ -71,6 +76,8 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
     NzProgressModule,
     NzStatisticModule,
     NzBreadCrumbModule,
+    NzInputNumberModule,
+    NzSpinModule
   ],
   providers: [NzMessageService],
 })
